@@ -19,5 +19,5 @@ jobs:
           uses: Azure/pipelines@v1
           with:
             azure-devops-project-url: https://dev.azure.com/slchandima/pipelineTest
-            azure-pipeline-name: 'pipelineTest-Maven-CI'
+            azure-pipeline-name: 'pipelineTest-Maven-CI_2'
             azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
