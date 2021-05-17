@@ -4,7 +4,8 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - master  
+      - testBuild
   pull_request:
     branches: 
       - master
