@@ -16,8 +16,7 @@ stages:
           inputs:
             targetType: 'inline'
             script: |
-              echo '##vso[task.setvariable variable=$(pullRequestNumber)]ABCDEF'
-              echo '##vso[task.setvariable variable=$(pullRequestNumber)]secondValue'
+              echo '##vso[task.setvariable variable=$pullRequestNumber]ABCDEF'
               echo '##vso[task.setvariable variable=one]secondValue'
               echo $(pullRequestNumber)
               echo $(one) # outputs secondValue
