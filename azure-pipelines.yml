@@ -1,18 +1,28 @@
 variables:
 - name: one
-  value: initialValue 
+  value: initialValue
+- name: pullRequestNumber
+  value: initialPRValue
 
-steps:
-  - script: |
-      echo ${{ variables.one }} # outputs initialValue
-      echo $(one)
-    displayName: First variable pass
-  - bash: echo '##vso[task.setvariable variable=one]secondValue'
-    displayName: Set new variable value
-  - script: |
-      echo ${{ variables.one }} # outputs initialValue
-      echo $(one) # outputs secondValue
-    displayName: Second variable pass
+
+
+stages:
+- stage: Search_pull_request_Number
+  jobs:
+    - job: Obtain_pull_request_number
+      steps:
+        - task: Bash@3
+          displayName: Bash Task
+          inputs:
+            targetType: 'inline'
+            script: |
+              echo '##vso[task.setvariable variable=pullRequestNumber]ABCDEF'
+              echo '##vso[task.setvariable variable=pullRequestNumber]secondValue'
+              echo '##vso[task.setvariable variable=one]secondValue'
+              echo $(pullRequestNumber)
+              echo $(one) # outputs secondValue
+            noProfile: false
+            noRc: false
 
 
 
