@@ -23,6 +23,9 @@ stages:
               echo $(one) # outputs secondValue
             noProfile: false
             noRc: false
+        - script: |
+              echo $(pullRequestNumber)
+              echo $(one) # outputs secondValue
 
 
 
