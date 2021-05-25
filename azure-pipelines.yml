@@ -3,6 +3,7 @@ variables:
   value: initialValue
 - name: pullRequestNumber
   value: initialPRValue
+- name: mavenVersion
 
 
 
@@ -18,6 +19,7 @@ stages:
             script: |
               echo '##vso[task.setvariable variable=pullRequestNumber]ABCDEF'
               echo '##vso[task.setvariable variable=one]secondValue'
+              echo '##vso[task.setvariable variable=mavenVersion]$(mvn -v)'
               echo $(pullRequestNumber)
               echo $(one) # outputs secondValue
             noProfile: false
@@ -25,9 +27,9 @@ stages:
         - script: |
               echo $(pullRequestNumber)
               echo $(one) # outputs secondValue
-              echo mvn -v
+              mvn -v
               var=mvn -v
-              echo $(var)
+              echo $(mavenVersion)
 
 
 
