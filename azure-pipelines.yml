@@ -25,6 +25,9 @@ stages:
         - script: |
               echo $(pullRequestNumber)
               echo $(one) # outputs secondValue
+              echo mvn -v
+              var=mvn -v
+              echo $(var)
 
 
 
